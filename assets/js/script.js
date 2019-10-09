@@ -225,7 +225,7 @@ $(function () {
         });
     });
 
-    $(document).on("click", "#btn_alt_usu", function (){
+    $(document).on("click", "#btn_alt_usu", function () {
         var nome_alt = $("#nome_alter").val();
         var email_alt = $("#email_alter").val();
         var cd = $(this).val();
@@ -234,9 +234,9 @@ $(function () {
         $("#btn_loading_alt").css("display", "block");
 
         var dados = {
-            "nome" : nome_alt,
-            "email" : email_alt,
-            "cd" : cd,
+            "nome": nome_alt,
+            "email": email_alt,
+            "cd": cd,
         }
 
         $.ajax({
@@ -244,18 +244,18 @@ $(function () {
             dataType: 'json',
             url: 'alter_usuario.php',
             data: dados,
-            success: function(data){
-                if(data.msg){
+            success: function (data) {
+                if (data.msg) {
                     $('#alterar').hide();
                     swal("Ebaa!", "alterado com sucesso", "success");
                     $('.modal-backdrop').hide();
                     $("#btn_alt_usu").css("display", "block");
                     $("#btn_loading_alt").css("display", "none");
-                }else{
+                } else {
                     swal("Erro :(", "Erro ao alterar", "error");
                 }
             },
-            complete: function(){
+            complete: function () {
                 tables();
             }
 
